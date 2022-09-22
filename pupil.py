@@ -8,12 +8,8 @@ def create(N, radius, obstruction_radius=None, arms_count=None, arms_size=1, arm
 
     pupil = ones((N, N))
 
-    X = zeros((N,N))
-    Y = zeros((N,N))
-
-    for i in arange(N):
-        X[i,:] = arange(N)
-        Y[:,i] = arange(N)
+    X = ones(N).reshape((N, 1)).dot(arange(N).reshape((1, N)))
+    Y = arange(N).reshape((N, 1)).dot(ones(N).reshape((1, N)))
 
     # # Create the main pupil
     pupil *= sqrt((X-N/2)**2 + (Y-N/2)**2) < radius
@@ -27,6 +23,6 @@ def create(N, radius, obstruction_radius=None, arms_count=None, arms_size=1, arm
         angle = arms_angle
         for i in arange(arms_count):
             pupil *= abs((X - N/2)*cos(angle) + (Y - N/2)*sin(angle)) > arms_size
-            angle += 2*pi/arms_count
+            pupil = rotate(pupil, 360/arms_count, reshape=False)
 
     return pupil
