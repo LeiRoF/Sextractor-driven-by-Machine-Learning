@@ -11,14 +11,14 @@ def create(N, radius, obstruction_radius=None, arms_count=None, arms_size=1, arm
     X = ones(N).reshape((N, 1)).dot(arange(N).reshape((1, N)))
     Y = arange(N).reshape((N, 1)).dot(ones(N).reshape((1, N)))
 
-    # # Create the main pupil
+    # Create the main pupil
     pupil *= sqrt((X-N/2)**2 + (Y-N/2)**2) < radius
 
-    # # Create the obstruction
+    # Create the obstruction
     if obstruction_radius is not None:
         pupil *= sqrt((X-N/2)**2 + (Y-N/2)**2) > obstruction_radius
 
-    # # Create the arms
+    # Create the arms
     if arms_count is not None:
         angle = arms_angle
         for i in arange(arms_count):
