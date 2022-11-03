@@ -1,3 +1,6 @@
 numpy
-tensorflow
+matplotlib
+scipy
+tensorflow >= 2.5
+tensorflow_hub
 LRFutils == 0.0.15

@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from multiprocessing import Pool
+from numba import njit
 
 # ____________________________________________________________________________________________________
 # Sky object 🌌
@@ -56,7 +57,8 @@ def lum_to_mag(lum):
 # ____________________________________________________________________________________________________
 # Create star ⭐
 
-def _create_star(x, y, l, fwhm, X, Y):
+@njit(fastmath=True)
+def _create_star(x:float, y:float, l:float, fwhm:float, X:np.ndarray, Y:np.ndarray):
     """
     Generating gaussian star at position (x,y) with luminosity L and full-weight at half max fwhm.
     X and Y are the coordinate grid of the image.
@@ -73,7 +75,8 @@ def create(
         mag       : list  = np.arange(0,5),
         mag_prob  : list  = np.ones(5),
         noise_mag : float = None,
-        noise_std : float = None
+        noise_std : float = None,
+        mode     : str   = 'sequential'
     ) -> tuple[np.ndarray, list]:
     """
     Create a N*N matrix representing a picture of a sky that contain "nb_stars" stars.
