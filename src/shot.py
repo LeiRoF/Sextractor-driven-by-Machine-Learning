@@ -14,7 +14,7 @@ class Shot:
 
     def _imshow(self):
         plt.figure(figsize=(10,10))
-        plt.imshow(self.picture, cmap='inferno')
+        plt.imshow(self.picture, cmap='gray')
         plt.title("Sky")
         plt.colorbar()
 
