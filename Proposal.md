@@ -21,11 +21,11 @@ Astrophysics
 Data/image processing (including astronomical observations and machine learning methods)
 
 ## 6) Abstract
-Most of the astronomical surveys need to extract objects from the pictures in order to study them. Several algorithm exist, such as the SExtractor and are efficient, but can an AI be more efficient? If we talk about computation time, the advantage of an AI is evident, but what about the accuracy and the relevance of the results? Can we manage to create an AI that produce strongly reliable results?
+Most of the astronomical surveys need to extract objects from the pictures in order to study them. Several algorithm exist, such as the SExtractor and are efficient, but can an AI reach the same or a better accuracy? What about the relevance of the results? Is it possible to create an AI that produce strongly reliable results?
 
 ## 7) Goals of the project
 
-1. Study the ability of an AI to extract sources from images (comparison with human eye and with classical SExtractor)
+1. Study the ability of an object detection AI model to extract sources from images (comparison with human eye and with classical SExtractor)
 2. Discuss about the relevance of the results
 3. Try to a clearer view of wich parameters may or may not be used and why
 

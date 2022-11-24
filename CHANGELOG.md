@@ -1,3 +1,35 @@
+# 24/11/2022
+- In order to train an object detection model, the data have to be in the COCO format. The script `convert_to_coco.py` can be used to convert the data to the COCO format. The script can be used as follows:
+
+
+  ```
+  <annotation>
+      <folder>{folder}</folder>
+      <filename>{filename}</filename>
+      <path>{path}</path>
+      <source>
+          <database>Unknown</database>
+      </source>
+      <size>
+          <width>{width}</width>
+          <height>{height}</height>
+          <depth>1</depth>
+      </size>
+      <object>
+          <name>star</name>
+              <pose>Unspecified</pose>
+              <truncated>Unspecified</truncated>    
+              <difficult>Unspecified</difficult>
+              <bndbox>
+                  <xmin>{x1}</xmin>
+                  <ymin>{y1}</ymin>
+                  <xmax>{x2}</xmax>
+                  <ymax>{y2}</ymax>
+              </bndbox>
+      </object>
+  </annotation>
+  ```
+
 # 5/11/2022
 - Found [a place to select a model according to a specific problem](https://tfhub.dev/s?fine-tunable=yes&module-type=image-object-detection)
 - Found [general object detection model application notebook](<https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb#scrollTo=HtwrSqvakTNn>)

@@ -1,7 +1,9 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from .pupil import Pupil
 from .sky import Sky
+import json
 
 # ____________________________________________________________________________________________________
 # Shot object 📸
@@ -24,7 +26,10 @@ class Shot:
 
     def save(self, path):
         self._imshow()
-        plt.savefig(path)
+        if not os.path.isdir(dir := os.path.split(path)[0]):
+            os.makedirs(dir)
+        plt.savefig(path + ".png")
+        json.dump(self.sky.stars, open(path + ".json", "w"))
 
 # ______________________________________________________________________________________________________________
 # Generating shot 📸

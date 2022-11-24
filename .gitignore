@@ -4,5 +4,5 @@ logs/
 _build/
 _static/
 _templates/
-_sextractor-venv/
+_sextractor/
 archives/

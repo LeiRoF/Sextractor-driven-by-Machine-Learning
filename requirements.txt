@@ -1,6 +1,10 @@
 numpy
 matplotlib
 scipy
-tensorflow >= 2.5
+tensorflow
 tensorflow_hub
 LRFutils == 0.0.15
+pillow
+GitPython
+numba
+# fiftyone

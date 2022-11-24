@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from scipy.ndimage.interpolation import rotate
 import matplotlib.pyplot as plt
@@ -46,11 +47,15 @@ class Pupil:
 
     def save(self, path):
         self._imshow()
-        plt.savefig(path)
+        if not os.path.isdir(dir := os.path.split(path)[0]):
+            os.makedirs(dir)
+        plt.savefig(path+".png")
     
     def save_diffraction_profile(self, path):
         self._imshow_diffraction_profile()
-        plt.savefig(path)
+        if not os.path.isdir(dir := os.path.split(path)[0]):
+            os.makedirs(dir)
+        plt.savefig(path+".png")
 
 # ____________________________________________________________________________________________________
 # Generating pupil image 🔭

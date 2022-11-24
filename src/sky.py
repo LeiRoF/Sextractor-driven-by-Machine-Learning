@@ -1,7 +1,9 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from multiprocessing import Pool
 from numba import njit
+import json
 
 # ____________________________________________________________________________________________________
 # Sky object 🌌
@@ -43,7 +45,10 @@ class Sky:
 
     def save(self, path):
         self._imshow()
-        plt.savefig(path)
+        if not os.path.isdir(dir := os.path.split(path)[0]):
+            os.makedirs(dir)
+        plt.savefig(path + ".png")
+        json.dump(self.stars, open(path + ".json", "w"))
 
 # ____________________________________________________________________________________________________
 # Conversions 📐
