@@ -1,8 +1,22 @@
+# 06/12/2022
+
+- Edited the way to export data to try the solution given by ChatGPT (see 05/12/2022)
+- Organized files in steps to be very user-friendly
+
+# 05/12/2022
+
+- In a totally unscheduled way, I probably found the way to train a TensorFlow model. Fun fact: this solution was provided by another ChatGPT from OpenAI. So an AI provided me the informations I was searching for several dozen hours... I will try it tomorrow.
+
+<div align=center>
+  <img src="img/2022-12-06-10-50-14.png" width="500"></br>
+  <img src="img/2022-12-06-10-51-01.png" width="500"></br>
+  <img src="img/2022-12-06-10-51-16.png" width="500">
+</div>
+
 # 24/11/2022
-- In order to train an object detection model, the data have to be in the COCO format. The script `convert_to_coco.py` can be used to convert the data to the COCO format. The script can be used as follows:
+- According to some exemple found on the web, the data have to be in an xml form:
 
-
-  ```
+  ```xml
   <annotation>
       <folder>{folder}</folder>
       <filename>{filename}</filename>

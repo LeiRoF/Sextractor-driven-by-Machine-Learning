@@ -48,7 +48,23 @@ class Sky:
         if not os.path.isdir(dir := os.path.split(path)[0]):
             os.makedirs(dir)
         plt.savefig(path + ".png")
+        self.save_stars(path)
+    
+    def save_stars(self, path):
         json.dump(self.stars, open(path + ".json", "w"))
+
+    def save_ai_ready(self, path):
+        np.savez_compressed(path, picture=self.picture)
+        plt.savefig(path + ".png")
+        self.save_stars_ai_ready(path)
+    
+    def save_stars_ai_ready(self, path):
+        objects = []
+        for star in self.stars:
+            objects.append(
+                {"label": "star", "bbox": [int(star[0]-self.fwhm), int(star[1]-self.fwhm), int(star[0]+self.fwhm), int(star[1]+self.fwhm)]  }
+            )
+        json.dump(objects, open(path + "_ai_ready.json", "w"), indent=4)
 
 # ____________________________________________________________________________________________________
 # Conversions 📐
@@ -62,7 +78,7 @@ def lum_to_mag(lum):
 # ____________________________________________________________________________________________________
 # Create star ⭐
 
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def _create_star(x:float, y:float, l:float, fwhm:float, X:np.ndarray, Y:np.ndarray):
     """
     Generating gaussian star at position (x,y) with luminosity L and full-weight at half max fwhm.
@@ -119,18 +135,22 @@ def create(
     y = np.random.randint(N, size=nb_stars)
 
     # Generating all stars (in parrallel) ✨
-    with Pool() as p:
-        stars = p.starmap(_create_star, zip(x, y, luminosities, [fwhm]*nb_stars, [X]*nb_stars, [Y]*nb_stars))
+    # with Pool() as p:
+    #     stars = p.starmap(_create_star, zip(x, y, luminosities, [fwhm]*nb_stars, [X]*nb_stars, [Y]*nb_stars))
+
+    stars = []
+    for i in range(nb_stars):
+        stars.append(_create_star(x[i], y[i], luminosities[i], fwhm, X, Y))
 
     # Superposing all stars on the same picture 🌌
-    sky = np.sum(stars, axis=0)
+    sky = np.sum(np.array(stars), axis=0)
 
     # Adding noise 🔉
     if None not in [noise_mag, noise_std]: 
         noise = np.random.normal(noise_mag, noise_std, (N,N))
         sky += mag_to_lum(noise)
 
-    return sky, list(zip(x, y, mag_values))
+    return sky, np.array(list(zip(x, y, mag_values))).astype(int).tolist()
 
 # ____________________________________________________________________________________________________
 # Test zone 🧪

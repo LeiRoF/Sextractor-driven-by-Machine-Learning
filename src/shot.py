@@ -29,7 +29,11 @@ class Shot:
         if not os.path.isdir(dir := os.path.split(path)[0]):
             os.makedirs(dir)
         plt.savefig(path + ".png")
-        json.dump(self.sky.stars, open(path + ".json", "w"))
+        self.sky.save_stars(path)
+    
+    def save_ai_ready(self, path):
+        np.savez_compressed(path, picture=self.picture)
+        self.sky.save_stars_ai_ready(path)
 
 # ______________________________________________________________________________________________________________
 # Generating shot 📸
