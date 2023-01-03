@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 03/01/2023
 
 - I gave up with the previous tutorial due to the mess to install dependencies and make it work while lot of stuff used are deprecated.
@@ -8,6 +9,8 @@
 
 - Previous solution doesn't work because the models seems to not be trainable, but I found this tutorial: https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html, I will test it.
 
+=======
+>>>>>>> c2b87e0c12f0864061ca4daa02ace67056400dee
 # 06/12/2022
 
 - Edited the way to export data to try the solution given by ChatGPT (see 05/12/2022)

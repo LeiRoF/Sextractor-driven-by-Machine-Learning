@@ -6,6 +6,10 @@ _static/
 _templates/
 _sextractor/
 archives/
+<<<<<<< HEAD
 yolov5/
 data/
 venv/
+=======
+data/
+>>>>>>> c2b87e0c12f0864061ca4daa02ace67056400dee

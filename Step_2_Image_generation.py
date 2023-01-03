@@ -4,9 +4,12 @@ import Step_0_Config as config
 from src.shot import Shot
 from src.pupil import Pupil
 from src.sky import Sky
+<<<<<<< HEAD
 
 if not os.path.exists(config.path):
     os.makedirs(config.path)
+=======
+>>>>>>> c2b87e0c12f0864061ca4daa02ace67056400dee
 
 for i in range(config.number_of_images):
     print(f"⚙️ Generating image {i+1} of {config.number_of_images}")

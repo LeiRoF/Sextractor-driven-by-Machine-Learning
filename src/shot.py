@@ -33,8 +33,12 @@ class Shot:
         self.sky.save_stars(path)
     
     def save_ai_ready(self, path):
+<<<<<<< HEAD
         imageio.imwrite(path+".jpg", self.picture.astype(np.uint8))
         # np.savez_compressed(path, picture=self.picture)
+=======
+        np.savez_compressed(path, picture=self.picture)
+>>>>>>> c2b87e0c12f0864061ca4daa02ace67056400dee
         self.sky.save_stars_ai_ready(path)
 
 # ______________________________________________________________________________________________________________
