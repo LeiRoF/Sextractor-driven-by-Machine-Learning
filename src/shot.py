@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from .pupil import Pupil
 from .sky import Sky
 import json
+import imageio
 
 # ____________________________________________________________________________________________________
 # Shot object 📸
@@ -29,7 +30,12 @@ class Shot:
         if not os.path.isdir(dir := os.path.split(path)[0]):
             os.makedirs(dir)
         plt.savefig(path + ".png")
-        json.dump(self.sky.stars, open(path + ".json", "w"))
+        self.sky.save_stars(path)
+    
+    def save_ai_ready(self, path):
+        imageio.imwrite(path+".jpg", self.picture.astype(np.uint8))
+        # np.savez_compressed(path, picture=self.picture)
+        self.sky.save_stars_ai_ready(path)
 
 # ______________________________________________________________________________________________________________
 # Generating shot 📸

@@ -5,7 +5,7 @@ import numpy as np
 #--------------------------------------------------
 
 number_of_images = 1000
-path = "data/dataset/"
+path = "yolov5/dataset/images"#"data/dataset/"
 filename_format = "{N}x{N}_with_{n}_stars"
 # Parameters:
 # - {i}: image number

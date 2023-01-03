@@ -6,3 +6,6 @@ _static/
 _templates/
 _sextractor/
 archives/
+yolov5/
+data/
+venv/

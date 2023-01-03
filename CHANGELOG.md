@@ -1,8 +1,32 @@
+# 03/01/2023
+
+- I gave up with the previous tutorial due to the mess to install dependencies and make it work while lot of stuff used are deprecated.
+- I just thook about looking at PyTorch instead of TensorFlow, which looks more user-friendly.
+- I found a neww tutorial to train an object detection model: https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data, with a [Google Colab](https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb) associated to the model.
+
+# 31/12/2022
+
+- Previous solution doesn't work because the models seems to not be trainable, but I found this tutorial: https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html, I will test it.
+
+# 06/12/2022
+
+- Edited the way to export data to try the solution given by ChatGPT (see 05/12/2022)
+- Organized files in steps to be very user-friendly
+
+# 05/12/2022
+
+- In a totally unscheduled way, I probably found the way to train a TensorFlow model. Fun fact: this solution was provided by another ChatGPT from OpenAI. So an AI provided me the informations I was searching for several dozen hours... I will try it tomorrow.
+
+<div align=center>
+  <img src="img/2022-12-06-10-50-14.png" width="500"></br>
+  <img src="img/2022-12-06-10-51-01.png" width="500"></br>
+  <img src="img/2022-12-06-10-51-16.png" width="500">
+</div>
+
 # 24/11/2022
-- In order to train an object detection model, the data have to be in the COCO format. The script `convert_to_coco.py` can be used to convert the data to the COCO format. The script can be used as follows:
+- According to some exemple found on the web, the data have to be in an xml form:
 
-
-  ```
+  ```xml
   <annotation>
       <folder>{folder}</folder>
       <filename>{filename}</filename>
