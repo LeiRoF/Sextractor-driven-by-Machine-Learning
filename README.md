@@ -24,9 +24,9 @@ This project require:
     venv\Scripts\activate.bat # Windows
     ```
 
-4. Install the requirements
+4. Run the setup script
     ```
-    pip install -r requirements.txt
+    python setup.py
     ```
 
 # 🚀 Usage

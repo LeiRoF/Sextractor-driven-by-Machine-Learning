@@ -55,7 +55,7 @@ class Sky:
         json.dump(self.stars, open(path + ".json", "w"))
 
     def save_ai_ready(self, path):
-        imageio.imwrite(path+".jpg", self.picture.astype(np.uint8))
+        imageio.imwrite(path+".png", (self.picture * 255 / np.max(self.picture)).astype(np.uint8))
         # np.savez_compressed(path, picture=self.picture)
         plt.savefig(path + ".png")
         self.save_stars_ai_ready(path)
@@ -157,7 +157,7 @@ def create(
         noise = np.random.normal(noise_mag, noise_std, (N,N))
         sky += mag_to_lum(noise)
 
-    return sky, np.array(list(zip(x, y, mag_values))).astype(int).tolist()
+    return mag_to_lum(sky), np.array(list(zip(x, y, mag_values))).astype(int).tolist()
 
 # ____________________________________________________________________________________________________
 # Test zone 🧪

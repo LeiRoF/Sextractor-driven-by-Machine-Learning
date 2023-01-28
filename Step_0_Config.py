@@ -5,7 +5,11 @@ import numpy as np
 #--------------------------------------------------
 
 number_of_images = 1000
-path = "yolov5/dataset/images"#"data/dataset/"
+train_fraction = 0.7
+validation_fraction = 0.2
+# test fraction = 1 - train_fraction - validation_fraction
+
+path = "data"#"data/dataset/"
 filename_format = "{N}x{N}_with_{n}_stars"
 # Parameters:
 # - {i}: image number
