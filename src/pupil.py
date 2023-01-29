@@ -1,7 +1,8 @@
 import os
 import numpy as np
-from scipy.ndimage.interpolation import rotate
+# from scipy.ndimage import rotate
 import matplotlib.pyplot as plt
+from PIL import Image
 
 # ____________________________________________________________________________________________________
 # Pupil object 🔭
@@ -88,12 +89,9 @@ def create(
 
     # Create spider's arms 🕷️
     for i in np.arange(arms_count):
-        pupil *= rotate(
-            ((abs(Y - N/2) > arms_size) + (X - N/2 < 0)).astype(int), # Generating horizontal arm with constrained height and defined in X positive
-            arms_angle + i/arms_count*360, # Then rotating the arm
-            reshape=False
-        )
-
+        new_arm = ((abs(Y - N/2) > arms_size) + (X - N/2 < 0)).astype(int) # Generating horizontal arm with constrained height and defined in X positive
+        im = Image.fromarray(new_arm)
+        pupil *= np.array(im.rotate(arms_angle + i/arms_count*360))
     return pupil
 
 # ____________________________________________________________________________________________________

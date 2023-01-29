@@ -1,7 +1,7 @@
 # 🔌 Setup
 
 This project require:
-- [Python 3.10](https://www.python.org/downloads/release/python-3100/) or above
+- [Python 3.10](https://www.python.org/downloads/release/python-3100/)
 - [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
 
 1. Clone the repository
@@ -16,12 +16,12 @@ This project require:
 
 3. (optional) Create a virtual environment
     ```bash
-    python3 -m venv venv
+    python3.10 -m venv venv
     ```
     And activate it:
     ```
     source venv/bin/activate # Linux
-    venv\Scripts\activate.bat # Windows
+    .\venv\Scripts\activate # Windows
     ```
 
 4. Run the setup script
@@ -35,11 +35,12 @@ This project require:
 2. Verify that this config gives you what you expect by opening the `Step_1_Image_verification.ipynb` notebook and running it.
 3. Generate a dataset of these images by running the `Step_2_Image_generation.py` program:
     ```
-    python3 Step_2_Image_generation.py
+    python Step_2_Image_generation.py
     ```
 4. Train the yoloV5 model by running the `Step_3_Train_AI` program:
     ```
-    python3 Step_3_Train_AI.py
+    ./Step_3_Train.sh # Linux
+    .\Step_3_Train.ps1 # Windows
     ```
     Or alternatively you can run this ugly command (this is the only thing the program above do):
     ```

@@ -28,7 +28,7 @@ for i in range(config.number_of_images):
         os.makedirs(path)
 
     bar(i+1, prefix=f"⚙️ Generating images ({mode})")
-    sky = Sky(N=config.N, nb_stars=config.nb_stars, fwhm=config.fwhm, mag=config.mag, mag_prob=config.mag_prob, noise_mag=config.noise_mag, noise_std=config.noise_std)
+    sky = Sky(N=config.N, nb_stars=config.nb_stars, fwhm=config.fwhm, intensity_prob=config.intensity_prob, noise_intensity=config.noise_intensity, noise_std=config.noise_std)
     pupil = Pupil(config.N, config.pupil_radius, config.obstruction_radius, config.arms_count, config.arms_size, config.arms_angle)
     shot = Shot(sky, pupil)
     shot.save_ai_ready(os.path.join(path, f"shot_{np.random.randint(999999):d}"))

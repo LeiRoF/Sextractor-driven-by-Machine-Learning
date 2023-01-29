@@ -5,29 +5,28 @@ from multiprocessing import Pool
 from numba import njit
 import json
 import imageio
+from typing import Callable
 
 # ____________________________________________________________________________________________________
 # Sky object 🌌
 
 class Sky:
     def __init__(
-        self,
-        N         : int   = 100,
-        nb_stars  : int   = None,
-        fwhm      : float = None,
-        mag       : list  = np.arange(0,5),
-        mag_prob  : list  = np.ones(5),
-        noise_mag : float = None,
-        noise_std : float = None
-    ):
+            self,
+            N : int = 100,
+            nb_stars : int = None,
+            fwhm : float = None,
+            intensity_prob : Callable[[float],float] = lambda x: 1,
+            noise_intensity : float = None,
+            noise_std : float = None
+        ):
         self.N = N
         self.nb_stars = nb_stars
         self.fwhm = fwhm
-        self.mag = mag
-        self.mag_prob = mag_prob
-        self.noise_mag = noise_mag
+        self.intensity_prob = intensity_prob
+        self.noise_intensity = noise_intensity
         self.noise_std = noise_std
-        self.picture, self.stars = create(N, nb_stars, fwhm, mag, mag_prob, noise_mag, noise_std)
+        self.picture, self.stars = create(N, nb_stars, fwhm, intensity_prob, noise_intensity, noise_std)
     
     def add_star(self, x, y, mag):
         X, Y = np.meshgrid(np.arange(self.N),np.arange(self.N))
@@ -61,12 +60,6 @@ class Sky:
         self.save_stars_ai_ready(path)
     
     def save_stars_ai_ready(self, path):
-        # objects = []
-        # for star in self.stars:
-        #     objects.append(
-        #         {"label": "star", "bbox": [int(star[0]-self.fwhm), int(star[1]-self.fwhm), int(star[0]+self.fwhm), int(star[1]+self.fwhm)]  }
-        #     )
-        # json.dump(objects, open(path + "_ai_ready.json", "w"), indent=4)
         with open(path + ".txt", "w") as f:
             # format: class x_center y_center width height
             # with normalized values
@@ -97,23 +90,20 @@ def _create_star(x:float, y:float, l:float, fwhm:float, X:np.ndarray, Y:np.ndarr
 # Create sky picture 🌌
 
 def create(
-        N         : int   = 100,
-        nb_stars  : int   = None,
-        fwhm      : float = None,
-        mag       : list  = np.arange(0,5),
-        mag_prob  : list  = np.ones(5),
-        noise_mag : float = None,
-        noise_std : float = None,
-        mode     : str   = 'sequential'
+        N               : int   = 100,
+        nb_stars        : int   = None,
+        fwhm            : float = None,
+        intensity_prob  = lambda x: 1, # 0*x allow to work with array
+        noise_intensity : float = None,
+        noise_std       : float = None,
     ) -> tuple[np.ndarray, list]:
     """
-    Create a N*N matrix representing a picture of a sky that contain "nb_stars" stars.
+    Create a N*N matrix representing a picture of a sky that contain "nb_stars" stars with a luminosity between 0 and 1 (no photon to sensor saturation).
     - "N" is the size of the picture
     - "nb_star" is the number of star. Default: N/2
     - "fwhm" is the full width at half maximum of the stars. Default: N/100
-    - "mag" represent the list of possible values for the magnitude of the stars. Default: arange(0,5)
-    - "mag_prob" represent the probability associated to each magnitude (must be the same dimension as "mag", will be automatically normalized). Default: ones(5)
-    - "noise_mag" is the mean of the gaussian noise. Default: None (no noise)
+    - "intensity_prob" function f(x) that return the probability p (in [0,1]) of having a star at mag at mag x, with x in [0,1]. Default: lambda x: 1
+    - "noise_intensity" is the mean intensity of the gaussian noise. Default: None (no noise)
     - "noise_std" is the standard deviation of the gaussian noise. Default: None (no noise)
     """
 
@@ -121,43 +111,33 @@ def create(
     if nb_stars is None:
         nb_stars = int(N/10)
     if fwhm is None:
-        fwhm = N/100
-
-    # Converting lists to numpy arrays 🚀
-    mag = np.array(mag)
-    mag_prob = np.array(mag_prob)
+        fwhm = 10
 
     # Defining coordinate grids 🧭
     X, Y = np.meshgrid(np.arange(N),np.arange(N))
-
-    # Normalizing the probabilities 📊
-    mag_prob = mag_prob/sum(mag_prob) # normalisation
-
-    # Getting the luminosity for all stars 🔆
-    mag_values = np.random.choice(mag, p=mag_prob, size=nb_stars)
-    luminosities = mag_to_lum(mag_values)
 
     # Getting position of all stars 📍
     x = np.random.randint(N, size=nb_stars)
     y = np.random.randint(N, size=nb_stars)
 
-    # Generating all stars (in parrallel) ✨
-    # with Pool() as p:
-    #     stars = p.starmap(_create_star, zip(x, y, luminosities, [fwhm]*nb_stars, [X]*nb_stars, [Y]*nb_stars))
-
     stars = []
+    intensities = []
     for i in range(nb_stars):
-        stars.append(_create_star(x[i], y[i], luminosities[i], fwhm, X, Y))
+        intensity = np.random.rand()
+        while np.random.rand() > intensity_prob(intensity):
+            intensity = np.random.rand()
+        stars.append(_create_star(x[i], y[i], intensity, fwhm, X, Y))
+        intensities.append(intensity)
 
     # Superposing all stars on the same picture 🌌
     sky = np.sum(np.array(stars), axis=0)
 
     # Adding noise 🔉
-    if None not in [noise_mag, noise_std]: 
-        noise = np.random.normal(noise_mag, noise_std, (N,N))
+    if None not in [noise_intensity, noise_std]: 
+        noise = np.random.normal(noise_intensity, noise_std, (N,N))
         sky += mag_to_lum(noise)
 
-    return mag_to_lum(sky), np.array(list(zip(x, y, mag_values))).astype(int).tolist()
+    return sky, np.array(list(zip(x, y, intensities))).astype(int).tolist()
 
 # ____________________________________________________________________________________________________
 # Test zone 🧪

@@ -27,10 +27,12 @@ filename_format = "{N}x{N}_with_{n}_stars"
 N = 1000 # Image size (in pixels)
 nb_stars = 100 # Number of stars
 fwhm = 3 # fwhm of all stars
-mag = np.arange(0,6) # possible magnitudes of the stars
-mag_prob = np.arange(1,7)**2 # probability associated to each magnitude
-noise_mag = 4 # mean of the gaussian noise
+noise_intensity = 4 # mean of the gaussian noise
 noise_std = 0.1 # standard deviation of the gaussian noise
+
+def intensity_prob(I:float) -> float:
+    """Probability p in [0,1] of generating a star ith intensity I, with I in [0,1]"""
+    return 1
 
 #--------------------------------------------------
 # TELESCOPE
@@ -40,4 +42,4 @@ pupil_radius = N/4 # Pupil radius (in pixels)
 obstruction_radius = N/20 # Obstruction radius (in pixels)
 arms_count = 3 # Number of arms
 arms_size = 5 # Arms size (in pixels)
-arms_angle = 0 # Arms angle (in degrees)
+arms_angle = 3 # Arms angle (in degrees)
