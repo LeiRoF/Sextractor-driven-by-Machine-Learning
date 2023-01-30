@@ -1,4 +1,4 @@
-# Diary
+# 📜 Diary
 
 > This page contain the diary of the project. I updated it when I did something interesting or when I had a problem. However, I did my best to keep it as complete as possible but as it was the first time I did that, it was not a reflex so it is not fully complete.
 
