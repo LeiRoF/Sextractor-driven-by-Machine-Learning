@@ -6,6 +6,8 @@ Import: `from src import shot`
 
 ![](img/2023-01-30-14-11-35.png)
 
+---
+
 ## Class shot.`Shot`
 
 ### Attributes
@@ -13,6 +15,8 @@ Import: `from src import shot`
 - **sky**: A **`Sky`** object used to generate this shot.
 - **pupil**: A **`Pupil`** object used to generate this shot.
 - **Picture**: A 2D numpy array representing the generated image (each pixel is a float number between 0 and 1, representing the light intensity).
+
+---
 
 ### Methods
 
@@ -30,6 +34,8 @@ Create a shot of a sky with a given pupil.
 
     A **`Shot`** object.
 
+---
+
 #### shot.Shot.`show(shot)`
 
 Show the shot.
@@ -41,6 +47,8 @@ Show the shot.
 :Returns:
 
     None
+
+---
 
 #### shot.Shot.`save(shot, filename)`
 
@@ -56,6 +64,8 @@ Save the shot in a file.
 
     None
 
+---
+
 #### shot.Shot.`save_ai_ready(shot, filename)`
 
 Save the shot in a file in a format that is ready to be used by the yoloV5 model.
@@ -69,6 +79,8 @@ Save the shot in a file in a format that is ready to be used by the yoloV5 model
 :Returns:
 
     None
+
+---
 
 ## Functions
 

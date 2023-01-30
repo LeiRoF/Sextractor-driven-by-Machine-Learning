@@ -6,6 +6,8 @@ Import: `from src import sky`
 
 ![](img/2023-01-30-14-11-16.png)
 
+---
+
 ## Class sky.`Sky`
 
 ### Attributes
@@ -17,6 +19,8 @@ Import: `from src import sky`
 - **noise_intensity**: A float number representing the mean intensity of the noise. If it is not defined, there will be no noise.
 - **noise_std**: A float number representing the standard deviation of the noise. If it is not defined, there will be no noise.
 - **Picture**: A 2D numpy array representing the generated image (each pixel is a float number between 0 and 1, representing the light intensity).
+
+---
 
 ### Methods
 
@@ -42,6 +46,8 @@ Create a sky with a given number of stars (point-like sources).
 
     A **`Sky`** object.
 
+---
+
 #### sky.Sky.`add_star(sky, x, y, fwhm, lum)`
 
 Add a star to the sky.
@@ -62,6 +68,8 @@ Add a star to the sky.
 
     None
 
+---
+
 #### sky.Sky.`show(sky)`
 
 Plot the sky using matplotlib.
@@ -73,6 +81,8 @@ Plot the sky using matplotlib.
 :Returns:
 
     None
+
+---
 
 #### sky.Sky.`save(sky, path)`
 
@@ -88,6 +98,8 @@ Save the sky as a png image.
     
     None
 
+---
+
 #### sky.Sky.`save_stars(sky, path)`
 
 Save the stars as a json file.
@@ -101,6 +113,8 @@ Save the stars as a json file.
 :Returns:
 
     None
+
+---
 
 #### sky.Sky.`save_ai_ready(sky, path)`
 
@@ -116,6 +130,8 @@ Save the sky as a png image that can be directly exploited by the yoloV5 model.
 
     None
 
+---
+
 #### sky.Sky.`save_stars_ai_ready(sky, path)`
 
 Save the stars as a text file that can be directly exploited by the yoloV5 model.
@@ -129,6 +145,8 @@ Save the stars as a text file that can be directly exploited by the yoloV5 model
 :Returns:
 
     None
+
+---
 
 ## Functions
 
@@ -144,6 +162,8 @@ Convert a magnitude to a luminosity.
 
     A float number representing the luminosity.
 
+---
+
 ### sky.`lum_to_mag(lum)`
 
 Convert a luminosity to a magnitude.
@@ -155,6 +175,8 @@ Convert a luminosity to a magnitude.
 :Returns:
 
     A float number representing the magnitude.
+
+---
 
 ### sky.`create(N=100, nb_stars=None, fwhm=None, intensity_prob=lambda x: 1, noise_intensity=None, noise_std=None)`
 
