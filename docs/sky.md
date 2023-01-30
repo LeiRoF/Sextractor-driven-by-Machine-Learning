@@ -1,10 +1,10 @@
-# 🌟 Sky
+# Sky
 
 The sky module allow to create and edit a sky picture in ideal conditions (no atmosphere, no telescope, no camera, no noise, no diffraction etc.). Stars are the represented as purely gaussian sources.
 
 Import: `from src import sky`
 
-![](img/2023-01-30-14-11-16.png)
+
 
 ---
 

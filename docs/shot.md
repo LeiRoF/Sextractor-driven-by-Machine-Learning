@@ -1,10 +1,10 @@
-# 📸 Shot
+# Shot
 
 A shot is a picture of the sky that takes into account some diffration effets due to the shape of the telescope pupil.
 
 Import: `from src import shot`
 
-![](img/2023-01-30-14-11-35.png)
+
 
 ---
 

@@ -1,4 +1,4 @@
-# 🔭 Pupil
+# Pupil
 
 A **`Pupil`** object correspond to the shape of the light well in the telescope. Is is represented by a 2D array filled in 0 (opaque parts) and 1 (transparent part).
 
@@ -6,7 +6,7 @@ Import: `from src import pupil`
 
 ![](img/2023-01-30-14-10-18.png)
 
-![](img/2023-01-30-14-10-29.png)
+
 
 ---
 

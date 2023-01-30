@@ -1,4 +1,4 @@
-# 🥜 Report - In a nutshell
+# Report - In a nutshell
 
 ## Introduction
 
