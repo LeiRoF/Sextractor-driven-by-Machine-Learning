@@ -8,6 +8,15 @@ Welcome to Sextractor driven by Machine Learning
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: General information
 
    Getting_Started
+   Diary
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Module documentation
+
+   sky
+   pupil
+   shot

@@ -28,10 +28,10 @@ class Sky:
         self.noise_std = noise_std
         self.picture, self.stars = create(N, nb_stars, fwhm, intensity_prob, noise_intensity, noise_std)
     
-    def add_star(self, x, y, mag):
+    def add_star(self, x, y, lum):
         X, Y = np.meshgrid(np.arange(self.N),np.arange(self.N))
-        self.picture += _create_star(self.N, x, y, mag_to_lum(mag), self.fwhm, X, Y)
-        self.stars.append([x, y, mag])
+        self.picture += _create_star(self.N, x, y, lum, self.fwhm, X, Y)
+        self.stars.append([x, y, lum])
 
     def _imshow(self):
         plt.figure(figsize=(10,10))

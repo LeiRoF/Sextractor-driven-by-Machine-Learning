@@ -1,9 +1,4 @@
-<div align=center>
-
----
-# Free project (S9) proposal form
-
-</div>
+# 📰 Proposal
 
 ## 1) Complete title
 SExtractor driven by Machine Learning
