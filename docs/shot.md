@@ -1,4 +1,4 @@
-# Shot
+# (Technical doc) Shot
 
 A shot is a picture of the sky that takes into account some diffration effets due to the shape of the telescope pupil.
 

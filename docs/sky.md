@@ -1,4 +1,4 @@
-# Sky
+# (Technical doc) Sky
 
 The sky module allow to create and edit a sky picture in ideal conditions (no atmosphere, no telescope, no camera, no noise, no diffraction etc.). Stars are the represented as purely gaussian sources.
 
