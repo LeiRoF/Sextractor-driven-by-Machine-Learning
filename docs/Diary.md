@@ -1,6 +1,6 @@
 # 📜 Diary
 
-> This page contain the diary of the project. I updated it when I did something interesting or when I had a problem. However, I did my best to keep it as complete as possible but as it was the first time I did that, it was not a reflex so there is some missing parts.
+> This page contain the diary of the project. I updated it when I did something interesting or when I had a problem. However, I did my best to keep it as complete as possible but as it was the first time I did that, it was not a reflex so it is not fully complete.
 
 ## Before
 
@@ -12,6 +12,14 @@
   - With central obstruction
   - With spider arms
 - Generated fake observations
+
+![](img/2023-01-30-14-11-16.png)
+
+![](img/2023-01-30-14-10-18.png)
+
+![](img/2023-01-30-14-10-29.png)
+
+![](img/2023-01-30-14-11-35.png)
 
 ## 2/11/2022
 

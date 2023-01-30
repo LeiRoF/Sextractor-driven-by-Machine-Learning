@@ -11,11 +11,12 @@ Welcome to Sextractor driven by Machine Learning
    :caption: General information
 
    Getting_Started
+   Overview
    Diary
 
 .. toctree::
    :maxdepth: 2
-   :caption: Module documentation
+   :caption: Modules
 
    sky
    pupil

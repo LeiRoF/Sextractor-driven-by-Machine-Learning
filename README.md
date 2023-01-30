@@ -46,3 +46,13 @@ This project require:
     ```
     cd ./src/yolov5 && python train.py --img 640 --batch 16 --epochs 3 --data "../dataset.yaml" --weights yolov5s.pt
     ```
+
+5. Detect objects in the test set
+    ```
+    ./Step_4_Detect.sh # Linux
+    .\Step_4_Detect.ps1 # Windows
+    ```
+    Or alternatively you can run this ugly command (this is the only thing the program above do):
+    ```
+    cd ./src/yolov5 && python detect.py --source "../../data/test/" --weights yolov5s.pt
+    ```	
