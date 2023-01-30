@@ -113,7 +113,7 @@
 - I gave up with the previous tutorial due to the mess to install dependencies and make it work while lot of stuff used are deprecated.
 - I just thought about looking at PyTorch instead of TensorFlow, which looks more user-friendly.
 - I found a new tutorial to train an object detection model (yoloV5): https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data, with a [Google Colab](https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb) associated to the model.
-- I succeded to train the model! At least, according to the output, now I have to train it on a big fdataset and look test some predictions.
+- I succeded to train the model! At least, according to the output, now I have to train it on a big dataset and test some predictions.
 
 ## 28/01/2023
 
@@ -121,8 +121,9 @@
 - I made a change in the way the pictures are generated: from magnitude range and magnitude probability, I now use only a probability function to have an intensity (and not a magnitude) which is contain between 0 and 1 (0 -> no photon on the sensor, 1 -> saturation of a pixel). It is more convenient to control what the image will look like.
 - Started to write documentation
 
+## 30/01/2023
 
-
+- Finished the documentation
 
 
 

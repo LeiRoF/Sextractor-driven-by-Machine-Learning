@@ -8,8 +8,6 @@ Import: `from src import pupil`
 
 ![](img/2023-01-30-14-10-29.png)
 
----
-
 ## Class pupil.`Pupil`
 
 ### Attributes
@@ -22,8 +20,6 @@ Import: `from src import pupil`
 - **arms_angle**: The angle of the arms of the spider (angle formed by the first arm with the x axis)
 - **picture**: A 2D numpy array representing the pupil (each pixel is either 1 or 0, representing if the light pass or not).
 - **diffraction_profile**: A 2D numpy array representing the diffraction profile of the pupil (each pixel is a float number between 0 and 1, representing the intensity).
-
----
 
 ### Methods
 
@@ -49,8 +45,6 @@ Create a pupil.
 
     A **`Pupil`** object.
 
----
-
 #### pupil.Pupil.`show(pupil)`
 
 Show the pupil using matplotlib.
@@ -62,8 +56,6 @@ Show the pupil using matplotlib.
 :Returns:
 
     None
-
----
 
 #### pupil.Pupil.`save(pupil, filename)`
 
@@ -79,8 +71,6 @@ Save the pupil in a png file.
 
     None
 
----
-
 #### pupil.Pupil.`show_diffraction_profile(pupil)`
 
 Show the diffraction profile of the pupil using matplotlib.
@@ -92,8 +82,6 @@ Show the diffraction profile of the pupil using matplotlib.
 :Returns:
 
     None
-
----
 
 #### pupil.Pupil.`save_diffraction_profile(pupil, filename)`
 
@@ -108,8 +96,6 @@ Save the diffraction profile of the pupil in a png file.
 :Returns:
 
     None
-
----
 
 ## Functions
 
@@ -134,8 +120,6 @@ Create a pupil.
 :Returns:
 
     A 2D numpy array representing the pupil (each pixel is either 1 or 0, representing if the light pass or not).
-
----
 
 ### pupil.`diffraction_profile(pupil_picture)`
 

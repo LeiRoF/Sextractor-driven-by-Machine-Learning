@@ -14,7 +14,7 @@ As the pictures was a bit too simplistic, I decided to add a telescope pupil and
 
 The second step was to design the model. Here is the part on which I spent the most time. In fact, I was expecting to face similar challenges as in a previous project I made in machine learning. But I was wrong because a a detail that change a lot the problem: a such model must have a variable number of outputs. Indeed, the number of light sources in the picture is not fixed.
 
-As I'm a beginer in machine learning and as there is a lot of different tutorial that are focused on specific problems, I made a lot and a lot of tentatives before realizing that the problem I was facing was a bit to complexe to design a model in 20h (I exceeded this time... just a bit...) by myself without having more experience.
+As I'm a beginer in machine learning and as there is a lot of different tutorial that are focused on specific problems, I made a lot and a lot of tentatives before realizing that the problem I was facing was a bit to complexe to design a model in 20h (I exceeded this time... just a bit) by myself without having more experience.
 
 ## Search for a tranable detection model
 
