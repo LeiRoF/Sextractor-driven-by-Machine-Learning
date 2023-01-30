@@ -2,17 +2,17 @@
 
 ## Introduction
 
-The idea of the project was to get a model that is able to extract light sources from astronomical pictures.
+The idea of the project was to get a machine learning model that is able to extract light sources from astronomical pictures.
 
 ## Generate astronomical pictures
 
-The first step (alpha version) was to create a program that allow to generate simplistic astronomical pictures with a given light source. To do so, the first step was to generate gaussian sources (stars) and to add them to a picture. Then, the noise was added to the picture.
+The first step (alpha version) was to create a program that allow to generate simplistic astronomical pictures. To do so, I generated gaussian sources (stars) and to add them to a picture at a random position and with a random intensity. Then, I added a gaussian noise to the picture.
 
 As the pictures was a bit too simplistic, I decided to add a telescope pupil and some diffraction effects to this image to make the stars look a bit more like the usual astronomical pictures. This part was very quick thanks to my experience on a similar project made in the end of my bachelore.
 
 ## Design the model
 
-The second step was to design the model. Here is the part on which I spent the most time. In fact, I was expecting to face similar challenges as in a previous project I made in machine learning. But I was wrong because a a detail that change a lot the problem: a such model must have a variable number of outputs. Indeed, the number of light sources in the picture is not fixed.
+The second step (beta version) was to design a working model. Here is the part on which I spent the most time. In fact, I was expecting to face similar challenges as in a previous project I made in machine learning. But I was wrong because a a detail that change a lot the problem: a such model must have a variable number of outputs. Indeed, the number of light sources in the picture is not fixed.
 
 As I'm a beginer in machine learning and as there is a lot of different tutorial that are focused on specific problems, I made a lot and a lot of tentatives before realizing that the problem I was facing was a bit to complexe to design a model in 20h (I exceeded this time... just a bit) by myself without having more experience.
 
