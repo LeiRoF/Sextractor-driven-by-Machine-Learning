@@ -1,5 +1,5 @@
 # Getting Started
-## 🔌 Setup
+## Setup
 
 This project require:
 - [Python 3.10](https://www.python.org/downloads/release/python-3100/)
@@ -30,7 +30,7 @@ This project require:
     python setup.py
     ```
 
-## 🚀 Usage
+## Usage
 
 1. Edit the config file (called `Step_0_Config.py`) as you want.
 2. Verify that this config gives you what you expect by opening the `Step_1_Image_verification.ipynb` notebook and running it.
